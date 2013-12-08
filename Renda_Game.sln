@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Renda_Game", "Renda_Game\Renda_Game.vcxproj", "{263F6192-DBA0-4F56-8CDB-DEBC5A39E15E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{263F6192-DBA0-4F56-8CDB-DEBC5A39E15E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{263F6192-DBA0-4F56-8CDB-DEBC5A39E15E}.Debug|Win32.Build.0 = Debug|Win32
+		{263F6192-DBA0-4F56-8CDB-DEBC5A39E15E}.Release|Win32.ActiveCfg = Release|Win32
+		{263F6192-DBA0-4F56-8CDB-DEBC5A39E15E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
