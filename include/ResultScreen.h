@@ -14,6 +14,11 @@ public:
 
 private:
     Game *m_game;
+
+    int m_winnerWindowImg;
+    int m_secondWinnerWindowImg;
+    int m_thirdWinnerWindowImg;
+    int m_underFourthWindowImg;
 };
 
 #endif

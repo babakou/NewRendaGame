@@ -19,6 +19,9 @@ private:
 
 private:
     PlayerList *m_playerList;
+
+    int m_entryWindowImg;
+    int m_yellowEntryWindowImg;
 };
 
 #endif

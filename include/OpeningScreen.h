@@ -14,10 +14,10 @@ public:
     void FadeOut( void );
 
 private:
-    std::string m_titleLetter;
-
     int m_titleLetterLocation_x;
     int m_titleLetterLocation_y;
+
+    int m_titleImg;
 };
 
 #endif

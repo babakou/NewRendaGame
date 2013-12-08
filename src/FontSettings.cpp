@@ -19,7 +19,7 @@ int answerFont;
 
 void GenerateFontHandle( void ) {
     defaultFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         48,
         6,
         DX_FONTTYPE_ANTIALIASING );
@@ -31,13 +31,13 @@ void GenerateFontHandle( void ) {
         DX_FONTTYPE_ANTIALIASING );
 
     captionFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         36,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     counterFont = CreateFontToHandle( 
-        "ＭＳ 明朝", 
+        "PixelMplus12 Regular", 
         36,
         5,
         DX_FONTTYPE_ANTIALIASING );
@@ -57,49 +57,49 @@ void GenerateFontHandle( void ) {
         DX_CHARSET_DEFAULT );
 
     areYouReadyFont = CreateFontToHandle( 
-        "ＭＳ 明朝", 
+        "PixelMplus12 Regular", 
         84,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     playerNameFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         28,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     registPlayerNameFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         48,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     winnerFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         60,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     secondWinnerFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         48,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     thirdWinnerFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         36,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     underFourthFont = CreateFontToHandle( 
-        "メイリオ", 
+        "PixelMplus12 Regular", 
         28,
         5,
         DX_FONTTYPE_ANTIALIASING );
 
     answerFont = CreateFontToHandle( 
-        "ＭＳ 明朝", 
+        "PixelMplus12 Regular", 
         60,
         5,
         DX_FONTTYPE_ANTIALIASING );
@@ -121,5 +121,5 @@ void GenerateFontHandle( void ) {
         BLACK,
         BLACK );
 
-    SetTransColor( 255, 255, 255 );
+    SetTransColor( 0, 0, 0 );
 }

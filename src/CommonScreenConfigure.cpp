@@ -14,8 +14,9 @@ const int RED = GetColor( 255, 0, 0 );
 const int BRIGHTGRAY = GetColor( 200, 200, 200 );
 const int BLUE = GetColor( 0, 0, 255 );
 const int GREEN = GetColor( 0, 255, 0 );
+const int YELLOW = GetColor( 0, 255, 255 );
 
-const char *Takahashi_M_Path = "C:/Users/babakou/Works/Renda_Game/bmp/Takahashi_M.jpg";
+const char *Takahashi_M_Path = "C:/Users/babakou/Works/Renda/bmp/CommonBackScreen.jpg";
 int TakahashiImg;
 
 void ConfigureCommonScreen( void ) {

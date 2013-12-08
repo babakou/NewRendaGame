@@ -14,6 +14,7 @@ extern const int RED;
 extern const int BRIGHTGRAY;
 extern const int BLUE;
 extern const int GREEN;
+extern const int YELLOW;
 
 extern const char *Takahashi_M_Path;
 extern int TakahashiImg;

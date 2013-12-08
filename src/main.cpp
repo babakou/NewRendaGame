@@ -5,8 +5,11 @@
 #include "GameScreen.h"
 #include "ResultScreen.h"
 #include "CommonScreenConfigure.h"
+#include "CommonUtils.h"
 
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow ) {
+
+    //ListUpFontsToFile();
 
     ConfigureCommonScreen();
     if( DxLib_Init() == -1 ) {
@@ -63,6 +66,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
         bool IsEntryEnd = false;
         while( state == 2 ) {
+            playerList = new PlayerList();
             entryScreen = new EntryScreen( screenSize_x, screenSize_y, playerList );
             entryScreen->FadeIn();
 
@@ -75,7 +79,6 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
         }
   
         while( state == 3 ) {
-            playerList = new PlayerList();
             game = new Game( playerList );
             gameScreen = new GameScreen( screenSize_x, screenSize_y, game );
             gameScreen->FadeIn();
@@ -130,15 +133,11 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
                 ClearDrawScreen();
                 resultScreen->Draw();
                 ScreenFlip();
-
-                if( CheckHitKey( KEY_INPUT_Z ) && CheckHitKey( KEY_INPUT_P ) ) {
-                    state = 2;
-                }
             }
 
-            if( state != 6 ) {
-                resultScreen->FadeOut();
-            }
+
+            state = 2;
+            resultScreen->FadeOut();
         }
 
         if ( game != NULL ) delete game; game = NULL;

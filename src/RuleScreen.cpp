@@ -6,7 +6,7 @@ RuleScreen::RuleScreen( int width, int height ) {
     m_width = width;
     m_height = height;
 
-    m_ruleImg = LoadGraph( "C:/Users/babakou/Works/Renda_Game/bmp/_Rule.jpg" );
+    m_ruleImg = LoadGraph( "C:/Users/babakou/Works/Renda/bmp/_Rule.jpg" );
 }
 
 RuleScreen::~RuleScreen() {

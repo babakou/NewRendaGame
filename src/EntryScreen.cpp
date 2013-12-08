@@ -13,12 +13,13 @@ namespace ES {
     char header[8][20];
     int headerWidth[8];
     int playerNameLocation_y[8];
+    int entryWindowLocation_y[8];
 
     std::string playerName[8];
 
     int currentPlayerNum = 0;
 
-    std::string gameStartStr = "ÉQÅ[ÉÄÇäJénÇµÇ‹Ç∑";
+    std::string gameStartStr = "íNÇ™çÇã¥ÇlÇÃâhó_ÇèüÇøéÊÇÈÇÃÇ©ÅIÅH";
     int gameStartLoc_x;
     int gameStartLoc_y;
 }
@@ -29,6 +30,9 @@ EntryScreen::EntryScreen( int width, int height, PlayerList *playerList ) {
 
     m_playerList = playerList;
 
+    m_entryWindowImg = LoadGraph( "C:/Users/babakou/Works/Renda/bmp/EntryWindow.jpg" );
+    m_yellowEntryWindowImg = LoadGraph( "C:/Users/babakou/Works/Renda/bmp/YellowEntryWindow.bmp" );
+
     GetFontStateToHandle( NULL, &ES::captionLetterHeight, NULL, captionFont );
 
     int strWidth = GetDrawStringWidthToHandle( ES::captionLetter.c_str(), ES::captionLetter.length(), captionFont );
@@ -38,12 +42,16 @@ EntryScreen::EntryScreen( int width, int height, PlayerList *playerList ) {
     GetFontStateToHandle( NULL, &ES::registPlayerNameHeight, NULL, registPlayerNameFont );
 
     for( int i = 0; i < 8; i++ ) {
-         _snprintf( ES::header[i], sizeof( ES::header[i] ), "Player %d : ", (i + 1) );
+         _snprintf( ES::header[i], sizeof( ES::header[i] ), "Player %d ", (i + 1) );
         ES::headerWidth[i] = GetDrawStringWidthToHandle( ES::header[i], strlen( ES::header[i] ), registPlayerNameFont );
     }
 
+    int entryWindowHeight = 0;
+    GetGraphSize( m_entryWindowImg, NULL, &entryWindowHeight );
+
     for( int i = 0; i < 8; i++ ) {
         ES::playerNameLocation_y[i] = captionLocation_y + ES::captionLetterHeight + 10 + ( (ES::registPlayerNameHeight + 10) * i );
+        ES::entryWindowLocation_y[i] = ES::playerNameLocation_y[i] - 5;
     }
 
     for( int i = 0; i < 8; i++ ) {
@@ -64,10 +72,11 @@ void EntryScreen::DrawInitialScreen( void ) {
     //DrawBox( 0, 0, m_width - 1, m_height - 1, WHITE, TRUE );
     DrawGraph( 0, 0, TakahashiImg, FALSE );
 
-    DrawStringToHandle( captionLocation_x, captionLocation_y, ES::captionLetter.c_str(), BLACK, captionFont );
+    DrawStringToHandle( captionLocation_x, captionLocation_y, ES::captionLetter.c_str(), WHITE, captionFont );
 
     for( int i = 0; i < 8; i++ ) {
-        DrawStringToHandle( 10, ES::playerNameLocation_y[i], ES::header[i], BLACK, defaultFont );
+        DrawStringToHandle( 10, ES::playerNameLocation_y[i], ES::header[i], WHITE, defaultFont );
+        DrawGraph( 2, ES::entryWindowLocation_y[i], m_entryWindowImg, TRUE );
     }
 }
 
@@ -77,11 +86,12 @@ bool EntryScreen::Draw( void ) {
     DrawInitialScreen();
 
     for( int i = 0; i < ES::currentPlayerNum; i++ ) {
-        DrawStringToHandle( 10 + ES::headerWidth[i], ES::playerNameLocation_y[i], ES::playerName[i].c_str(), BLACK, registPlayerNameFont );
+        DrawStringToHandle( 10 + ES::headerWidth[i], ES::playerNameLocation_y[i], ES::playerName[i].c_str(), WHITE, registPlayerNameFont );
     }
+    
 
     if( ES::currentPlayerNum >= 8 ) {
-        DrawStringToHandle( ES::gameStartLoc_x, ES::gameStartLoc_y, ES::gameStartStr.c_str(), BLACK, captionFont );
+        DrawStringToHandle( ES::gameStartLoc_x, ES::gameStartLoc_y, ES::gameStartStr.c_str(), WHITE, captionFont );
         ScreenFlip();
 
         while( 0 == CheckHitKey( KEY_INPUT_Z ) ) {
@@ -101,6 +111,7 @@ bool EntryScreen::Draw( void ) {
         return true;
     }
 
+    DrawGraph( 2, ES::entryWindowLocation_y[ES::currentPlayerNum], m_yellowEntryWindowImg, TRUE );
     ScreenFlip();
 
     char tmpName[50];
@@ -134,7 +145,8 @@ void EntryScreen::FadeOut( void ) {
         SetDrawBright( brightness, brightness, brightness );
         DrawInitialScreen();
         for( int i = 0; i < ES::currentPlayerNum; i++ ) {
-            DrawStringToHandle( 10 + ES::headerWidth[i], ES::playerNameLocation_y[i], ES::playerName[i].c_str(), BLACK, registPlayerNameFont );
+            DrawStringToHandle( 10 + ES::headerWidth[i], ES::playerNameLocation_y[i], ES::playerName[i].c_str(), WHITE, registPlayerNameFont );
+            DrawGraph( 2, ES::entryWindowLocation_y[i], m_entryWindowImg, TRUE );
         }
         ScreenFlip();
         Sleep( 10 );

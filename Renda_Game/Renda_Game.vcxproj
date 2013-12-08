@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp" />
     <ClCompile Include="..\src\CommonScreenConfigure.cpp" />
+    <ClCompile Include="..\src\CommonUtils.cpp" />
     <ClCompile Include="..\src\EntryScreen.cpp" />
     <ClCompile Include="..\src\FontSettings.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\Button.h" />
     <ClInclude Include="..\include\CommonScreenConfigure.h" />
+    <ClInclude Include="..\include\CommonUtils.h" />
     <ClInclude Include="..\include\EntryScreen.h" />
     <ClInclude Include="..\include\FontSettings.h" />
     <ClInclude Include="..\include\Game.h" />
@@ -81,7 +83,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\babakou\Works\DxLib;C:\Users\babakou\Works\Renda_Game\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\babakou\Works\DxLib;C:\Users\babakou\Works\Renda\Program\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -99,7 +101,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\babakou\Works\DxLib;C:\Users\babakou\Works\Renda_Game\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\babakou\Works\DxLib;C:\Users\babakou\Works\Renda\Program\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>

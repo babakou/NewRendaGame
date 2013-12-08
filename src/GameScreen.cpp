@@ -97,7 +97,7 @@ GameScreen::GameScreen( int width, int height, Game *game ) {
     GS::timeUpLoc_x = ( width / 2 ) - ( strWidth / 2 );
     GS::timeUpLoc_y = ( height / 2 ) - ( timeUpFontHeight / 2 );
 
-    GS::chartImg = LoadGraph( "C:/Users/babakou/Works/Renda_Game/bmp/chart.jpg" );
+    GS::chartImg = LoadGraph( "C:/Users/babakou/Works/Renda/bmp/chart.jpg" );
 }
 
 GameScreen::~GameScreen() {
@@ -114,23 +114,23 @@ bool GameScreen::Draw( void ) {
     else {
         if( m_game->DoesWaitingStart() ) {
             if( m_game->GetRestTimeToStart() > 3 ) {
-                DrawStringToHandle( GS::areYouReadyLoc_x, GS::areYouReadyLoc_y, GS::areYouReadyStr.c_str(), BLACK, areYouReadyFont );
+                DrawStringToHandle( GS::areYouReadyLoc_x, GS::areYouReadyLoc_y, GS::areYouReadyStr.c_str(), WHITE, areYouReadyFont );
             }
             else {
-                DrawFormatStringToHandle( GS::countDownLoc_x, GS::countDownLoc_y, BLACK, restTimeFont, "%d", m_game->GetRestTimeToStart() );
+                DrawFormatStringToHandle( GS::countDownLoc_x, GS::countDownLoc_y, WHITE, restTimeFont, "%d", m_game->GetRestTimeToStart() );
             }
         }
         for( int i = 0; i < m_game->GetNumOfPlayer(); i++ ) {
             int pushCount = m_game->GetPlayerInfo(i)->GetPushCount();
-            DrawFormatStringToHandle( GS::pushCountLoc_x[i], GS::pushCountLoc_y[i] - (pushCount * 3), BLACK, counterFont, "%d", pushCount );
-            DrawStringToHandle( GS::playerNameLoc_x[i], GS::playerNameLoc_y[i], m_game->GetPlayerInfo(i)->GetName(), BLACK, playerNameFont );
+            DrawFormatStringToHandle( GS::pushCountLoc_x[i], GS::pushCountLoc_y[i] - (pushCount * 3), WHITE, counterFont, "%d", pushCount );
+            DrawStringToHandle( GS::playerNameLoc_x[i], GS::playerNameLoc_y[i], m_game->GetPlayerInfo(i)->GetName(), WHITE, playerNameFont );
             int chartColor = GetColor( pushCount, pushCount, pushCount );
             DrawChart( GS::chartCenter[i], GS::chartBottomLoc, 60, pushCount * 3, chartColor );
         }
     }
 
 
-    DrawFormatStringToHandle( GS::restTimeLoc_x, GS::restTimeLoc_y, BLACK, restTimeFont, "%04.1f", ((double)m_game->GetRestTimeToFinish() / 10) );
+    DrawFormatStringToHandle( GS::restTimeLoc_x, GS::restTimeLoc_y, WHITE, restTimeFont, "%04.1f", ((double)m_game->GetRestTimeToFinish() / 10) );
 
     return true;
 }
